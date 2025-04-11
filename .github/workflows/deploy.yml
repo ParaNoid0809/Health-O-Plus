@@ -27,7 +27,11 @@ jobs:
       - name: Build static files
         run: |
           mkdir -p docs
-          cp -r AshaAI/templates/* docs/
+          # Copy the main HTML file
+          cp AshaAI/templates/chat.html docs/index.html
+          # Create static directory
+          mkdir -p docs/static
+          # Copy all static files
           cp -r AshaAI/static/* docs/static/
           
       - name: Upload artifact
